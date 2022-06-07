@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-jun-2022 17:24:26 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOS.Empleados" table="empleados" catalog="personal" optimistic-lock="version">
+        <id name="empNo" type="string">
+            <column name="Emp_no" length="4" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="departamentos" class="POJOS.Departamentos" fetch="select">
+            <column name="Dept_no" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="25" />
+        </property>
+        <property name="alta" type="java.lang.Integer">
+            <column name="Alta" />
+        </property>
+        <property name="salario" type="java.lang.Integer">
+            <column name="Salario" />
+        </property>
+    </class>
+</hibernate-mapping>
